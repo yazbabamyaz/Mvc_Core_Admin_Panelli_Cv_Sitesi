@@ -1,0 +1,17 @@
+﻿@using MvcCoreCv.Entities
+@model TblSkill
+@{
+    ViewData["Title"] = "AddSkill";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Yetenek Ekle</h1>
+
+<form class="form-group" method="post">    
+    <input type="text" asp-for="Skills" class="form-control" placeholder="Yetenek Ekle..." />
+    <br />
+    <input type="text" asp-for="Percent" class="form-control" placeholder="Oran-Yüzde..." />
+    <br /> 
+    <button class="btn btn-info">Kaydet</button>
+</form>
+

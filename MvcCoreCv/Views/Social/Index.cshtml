@@ -1,0 +1,127 @@
+﻿@using MvcCoreCv.Entities
+@model List<TblSocial>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="wrapper">
+
+
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <a asp-controller="Social" asp-action="AddSocial" class="btn btn-info">Sosyal Medya Ekle</a>
+                            <br /><br />
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#Modal1">Sosyal Medya Ekle-Popup-</button>
+                            <br />
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 10px">#</th>
+                                        <th>Sosyal Medya</th>
+                                        <th>Durum</th>
+                                        <th style="text-align:center">Düzenle</th>
+                                        <th style="text-align:center">Sil</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                       
+
+                                        <tr>
+                                            <td>@item.Id</td>
+                                            <td>@item.Name</td>   
+                                            <td>@item.Status</td>
+                                            
+                                            <td style="text-align:center">
+                                                <a class="btn btn-info btn-sm" asp-controller="Social" asp-action="UpdateSocial" asp-route-id="@item.Id">
+                                                    <i class="fas fa-pencil-alt">
+                                                    </i>
+                                                    Düzenle
+                                                </a>
+                                            </td>
+                                            <td style="text-align:center">
+                                                <a class="btn btn-danger btn-sm" asp-controller="Social" asp-action="DeleteSocial" asp-route-id="@item.Id" onclick="return confirm('Silmek istiyor musun?')">
+                                                    <i class="fas fa-trash">
+                                                    </i>
+                                                    Sil
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body Sayfalama yapısı için -->
+                        @* <div class="card-footer clearfix">
+                        <ul class="pagination pagination-sm m-0 float-right">
+                        <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+                        </ul>
+                        </div>*@
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <div class="modal" id="Modal1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Sosyal Medya Ekleme</h4>
+                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">X</button>
+                </div>
+                <div class="modal-body">
+                <form class="form-group" method="post" asp-controller="Social" asp-action="AddSocial">
+                    <input type="text" name="Name" class="form-control" placeholder="Sosyal Medya ismi Giriniz." />
+                    <br />
+                    <input type="text" name="Link" class="form-control" placeholder="Sosyal Medya linki Giriniz." />
+                    <br />
+                    <input type="text" name="Icon" class="form-control" placeholder="Sosyal Medya Icon Giriniz." />
+                    <br />
+
+                        <div class="card">
+                            <div class="card-body">
+                                <input type="radio" name="Status" value="True" checked> Aktif<br />
+
+                                <input type="radio" name="Status" value="False">Pasif
+                            </div>
+                        </div>
+                        
+                    <button class="btn btn-success">Ekle</button>
+                </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+</div>
+
+
+
+
+
+

@@ -1,0 +1,40 @@
+﻿@using MvcCoreCv.DTOs
+@model List<EducationDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<h1>Eğitim Bilgileri</h1>
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Okul</th>
+        <th>Bölüm</th>
+        <th>Bölüm 2</th>
+        <th>Not Ortalaması</th>
+        <th>Tarih</th>
+        <th>Sil</th>
+        <th>Düzenle</th>
+    </tr>
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Title</td>
+            <td>@item.SubTitle1</td>
+            <td>@item.SubTitle2</td>
+            <td>@item.GPA</td>
+            <td>@item.Date</td>
+            @*<td><a href="/Experience/DeleteExperience/@item.Id"  class="btn btn-danger">Delete</a></td>*@
+            <td><a asp-action="DeleteEducation" asp-controller="Education" asp-route-id="@item.Id" class="btn btn-danger" onclick="return confirm('Silme işlemi onaylansın mı?')">Delete</a></td>
+            <td><a asp-action="UpdateEducation" asp-controller="Education" asp-route-id="@item.Id" class="btn btn-warning">Edit</a></td>
+        </tr>
+    }
+</table>
+<a href="/Education/AddEducation" class="btn btn-primary"> Add New Experience</a>
+

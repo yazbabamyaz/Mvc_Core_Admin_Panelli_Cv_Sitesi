@@ -1,0 +1,15 @@
+﻿@using MvcCoreCv.Entities
+@model IEnumerable<TblHobby>
+
+
+<div class="resume-section-content">
+                <h2 class="mb-5">İlgi Alanlarım</h2>
+
+                @foreach (var item in Model)
+    {
+        <p>@item.Description</p>
+    }
+
+                
+               
+            </div>

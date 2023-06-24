@@ -1,0 +1,17 @@
+﻿@using MvcCoreCv.Entities
+@model TblHobby
+@{
+    ViewData["Title"] = "AddHobby";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>AddHobby</h1>
+
+<form class="form-group" method="post">
+    <input type="text" asp-for="Description" class="form-control" placeholder="Hobi Başlık giriniz." />
+    <br />
+    <input type="text" asp-for="Description2" class="form-control" placeholder="Hobi içerik giriniz." />
+    <br />
+
+    <button class="btn btn-info">Ekle</button>
+</form>

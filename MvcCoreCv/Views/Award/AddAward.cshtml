@@ -1,0 +1,16 @@
+﻿@using MvcCoreCv.DTOs
+@model AwardDto
+@{
+    ViewData["Title"] = "AddAward";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Sertifika Ekle</h1>
+<form class="form-group" method="post">
+    <input type="text" asp-for="Description" class="form-control" placeholder="Sertifika Gir..." />    
+    <br />
+    
+    <input type="text" asp-for="Date" class="form-control" placeholder="Tarih Ekle..." />    
+    <br />    
+    <button class="btn btn-info">Kaydet</button>
+</form>

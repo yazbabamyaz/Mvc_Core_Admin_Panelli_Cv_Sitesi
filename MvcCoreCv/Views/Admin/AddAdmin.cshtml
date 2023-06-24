@@ -1,0 +1,17 @@
+﻿@using MvcCoreCv.Entities
+@model TblAdmin
+@{
+    ViewData["Title"] = "AddAdmin";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Kullanıcı Ekle</h1>
+
+<form class="form-group" method="post">
+    <input type="text" asp-for="UserName" class="form-control" placeholder="Kullanıcı Adı Giriniz..." />    
+    <br />
+    <input type="text" asp-for="Password" class="form-control" placeholder="Şifre Giriniz..." />
+    <br />  
+    
+    <button class="btn btn-info">Ekle</button>
+</form>

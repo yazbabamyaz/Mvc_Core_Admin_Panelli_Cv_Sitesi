@@ -1,0 +1,120 @@
+﻿@using MvcCoreCv.Entities
+@model IEnumerable<TblSkill>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@{
+    var renk = "";
+    var renk2 = "";
+}
+
+
+
+
+    <div class="wrapper">
+       
+            
+
+            <!-- Main content -->
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <a asp-controller="Skill" asp-action="AddSkill" class="btn btn-info">Yeni Yetenek Ekle</a>
+                                    <br /><br />
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 10px">#</th>
+                                                <th>Skills</th>
+                                                <th>Progress</th>
+                                                <th style="width:60px">Percent</th>
+                                        <th style="text-align:center">Edit</th>
+                                        <th style="text-align:center">Delete</th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model)
+                                        {
+                                        if (item.Percent < 50)
+                                        {
+                                            renk = "progress-bar bg-danger";
+                                            renk2 = "badge bg-danger";
+                                        }
+                                        else if (item.Percent >= 50 && item.Percent <= 75)
+                                        {
+                                            renk = "progress-bar bg-warning";
+                                            renk2 = "badge bg-warning";
+                                        }
+                                        else if (item.Percent > 75 && item.Percent <= 85)
+                                        {
+                                            renk = "progress-bar bg-primary";
+                                            renk2 = "badge bg-primary";
+                                        }
+                                        else
+                                        {
+                                            renk = "progress-bar bg-success";
+                                            renk2 = "badge bg-success";
+                                        }
+
+                                        <tr>
+                                                <td>@item.Id</td>
+                                                <td>@item.Skills</td>
+                                                <td>
+                                                    <div class="progress progress-xs">
+                                                        <div class="@renk" style="width: @item.Percent%"></div>
+                                                    </div>
+                                                </td>
+                                                <td><span class="@renk2">@item.Percent%</span></td>
+                                                <td style="text-align:center">
+                                                <a class="btn btn-info btn-sm" asp-controller="Skill" asp-action="UpdateSkill" asp-route-id="@item.Id">
+                                                    <i class="fas fa-pencil-alt">
+                              </i>
+                              Edit
+                          </a></td>
+                                            <td style="text-align:center">
+                                                <a class="btn btn-danger btn-sm" asp-controller="Skill" asp-action="DeleteSkill" asp-route-id="@item.Id" onclick="return confirm('Silmek istiyor musun?')" >
+                                                    <i class="fas fa-trash">
+                              </i>
+                              Delete
+                          </a></td>   
+                                            </tr>
+                                        }
+                                           
+                                           
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- /.card-body Sayfalama yapısı için -->
+                               @* <div class="card-footer clearfix">
+                                    <ul class="pagination pagination-sm m-0 float-right">
+                                        <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+                                    </ul>
+                                </div>*@
+                            </div>
+                            
+                        </div>
+                       
+                    </div>
+                   
+                </div>
+            </section>
+           
+        </div>
+       
+ 
+
+
+

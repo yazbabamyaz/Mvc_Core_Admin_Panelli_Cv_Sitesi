@@ -1,0 +1,85 @@
+﻿@using MvcCoreCv.DTOs
+@model List<AwardDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<body class="hold-transition sidebar-mini">
+   
+      
+            <!-- Main content -->
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-3">
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header p-2">
+                                   
+                                </div><!-- /.card-header -->
+                        
+                                <div class="card-body">
+                            <a asp-controller="Award" asp-action="AddAward" class="btn btn-dark">Yeni Sertifika Ekle</a><br /><br />
+                                       
+                                        <!-- /.tab-pane -->
+                                        <div class="tab-pane" id="timeline">
+
+                                <div class="timeline timeline-inverse">
+                                            @foreach (var item in Model)
+                                {
+                                    
+                                        <!-- timeline time label -->
+                                        <div class="time-label">
+                                            <span class="bg-success">
+                                                @item.Date
+                                            </span>
+                                        </div>
+                                        <!-- /.timeline-label -->
+                                        <!-- timeline item -->
+                                        <div>
+                                            @*<i class="fas fa-comment bg-primary"></i>*@
+
+                                            <div class="timeline-item">
+
+
+
+
+                                                <div class="timeline-body">
+                                                    @item.Description
+                                                </div>
+                                                <div class="timeline-footer">
+                                                    <a asp-controller="Award" asp-action="UpdateAward" asp-route-id="@item.Id" class="btn btn-primary btn-sm">Düzenle</a>
+                                                    <a asp-controller="Award" asp-action="DeleteAward" asp-route-id="@item.Id" class="btn btn-danger btn-sm" onclick="return confirm('Silmek istiyor musun?')" >Sil</a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                   
+                                }
+                                     </div>
+                                            <!-- The timeline -->
+                                           
+                                        </div>
+                                       
+                                    </div>
+                                    <!-- /.tab-content -->
+                                </div><!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                
+            </section>           
+       
+</body>
+</html>
+
+

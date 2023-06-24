@@ -1,0 +1,18 @@
+﻿@using MvcCoreCv.Entities
+@model TblAdmin
+@{
+    ViewData["Title"] = "UpdateAdmin";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Kullanıcı Güncelleme</h1>
+
+<form class="form-group" method="post">
+    <input type="text"  asp-for="UserName" class="form-control" />
+    
+    <br />
+    <input type="text" asp-for="Password" class="form-control" />
+    <br />   
+    
+    <button class="btn btn-info">Güncelle</button>
+</form>

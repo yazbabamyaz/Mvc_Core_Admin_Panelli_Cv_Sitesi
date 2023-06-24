@@ -1,0 +1,24 @@
+﻿@using MvcCoreCv.Entities
+@model TblExperince
+@{
+    ViewData["Title"] = "UpdateExperience";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Deneyim Güncelleme Sayfası</h1>
+
+<form class="form-group" method="post">
+    <input type="text"  asp-for="Title" class="form-control" placeholder="Başlık yazınız..." />
+    @*html kullanımı da şu şekilde:
+    @Html.Label("Başlık")
+    @Html.TextBoxFor(x=>x.Title,new {@class="form-control"})*@
+    <br />
+    <input type="text" asp-for="SubTitle" class="form-control" placeholder="Alt Başlık..." />
+    <br />
+    <input type="text"  asp-for="Date" class="form-control" placeholder="Tarih..." />
+    <br />
+    <textarea  asp-for="Description" class="form-control" placeholder="Açıklama Giriniz..." rows="5"></textarea>
+    <br />
+    <button class="btn btn-info">Update</button>
+</form>
+

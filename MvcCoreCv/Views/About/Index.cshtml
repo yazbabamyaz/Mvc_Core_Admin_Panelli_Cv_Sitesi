@@ -1,0 +1,28 @@
+﻿@using MvcCoreCv.DTOs
+@model AboutDto
+@{
+    ViewData["Title"] = "Index";
+    
+}
+
+<h1>Profil Sayfası</h1>
+
+<form class="form-group" method="post">
+    <input type="hidden" asp-for="Id" />
+    <input type="text" asp-for="Name" class="form-control"/>
+    <br />
+    <input type="text" asp-for="SurName" class="form-control" />
+    <br />
+    <input type="text" asp-for="Address" class="form-control" />
+    <br />
+    <input type="text" asp-for="PhoneNumber" class="form-control" />
+    <br />    
+    <input type="text" asp-for="Mail" class="form-control" />
+    <br />
+    <input type="text" asp-for="Image" class="form-control" />
+    <br />
+    <textarea class="form-control" asp-for="Description" rows="4"></textarea>
+    <br />
+    <button class="btn btn-success">Güncelle</button> 
+</form>
+

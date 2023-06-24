@@ -1,0 +1,85 @@
+﻿@using MvcCoreCv.Entities
+@model List<TblHobby>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<body class="hold-transition sidebar-mini">
+
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Hobilerim</h1>
+          </div>
+         
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+     
+    <!-- Main content -->
+    <section class="content">
+        
+        <div class="row">            
+            <div class="col-12" id="accordion">
+                <a asp-action="AddHobby" asp-controller="Hobby" class="btn btn-info">Ekle</a>
+        <br />
+                @foreach (var item in Model)
+        {
+                    <div class="card card-primary card-outline">
+                        <a class="d-block w-100" data-toggle="collapse" href="#aa-@item.Id">
+                            <div class="card-header">
+                                <h4 class="card-title w-100">
+                                    @item.Description
+                                </h4>
+                            </div>
+                        </a>
+                        <div id="aa-@item.Id" class="collapse" data-parent="#accordion">
+                            <div class="card-body">
+                                @item.Description2
+                                <br>
+                            <a asp-action="DeleteHobby" asp-controller="Hobby" asp-route-id="@item.Id" class="btn btn-info" onclick="return confirm('Silme işlemi onaylansın mı?')">Sil</a> 
+                                <a asp-action="UpdateHobby" asp-controller="Hobby" asp-route-id="@item.Id" class="btn btn-info">Güncelle</a>
+                            </div>
+                        </div>
+                    </div>
+
+        }
+            </div>
+       </div>
+       
+    </section>
+    <!-- /.content -->
+
+  <!-- /.content-wrapper -->
+
+ 
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="../../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../../dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../../dist/js/demo.js"></script>
+</body>
+</html>
+
+    
+    
+    
+
+

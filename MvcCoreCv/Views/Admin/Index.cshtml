@@ -1,0 +1,32 @@
+﻿@using MvcCoreCv.Entities
+@model List<TblAdmin>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Kullanıcılar Sayfası</h1>
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Kullanıcı Adı</th>
+        <th>Şifre</th>        
+        <th>Sil</th>
+        <th>Düzenle</th>
+    </tr>
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.UserName</td>
+            <td>@item.Password</td>
+            
+            @*<td><a href="/Experience/DeleteExperience/@item.Id"  class="btn btn-danger">Delete</a></td>*@
+            <td><a asp-action="DeleteAdmin" asp-controller="Admin" asp-route-id="@item.Id" class="btn btn-danger" onclick="return confirm('Kullanıcı silinsin mi?')">Sil</a></td>
+            <td><a  asp-action="UpdateAdmin" asp-controller="Admin" asp-route-id="@item.Id" class="btn btn-warning">Düzenle</a></td>
+        </tr>
+    }
+</table>
+<a  asp-controller="Admin" asp-action="AddAdmin" class="btn btn-primary"> Yeni Kullanıcı Ekle </a>

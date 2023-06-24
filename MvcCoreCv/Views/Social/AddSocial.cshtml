@@ -1,0 +1,27 @@
+﻿@using MvcCoreCv.Entities
+@model TblSocial
+@{
+    ViewData["Title"] = "AddSocial";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Sosyal Medya Ekleme</h1>
+<form class="form-group" method="post">
+    <input type="text" asp-for="Name" class="form-control" placeholder="Sosyal Medya ismi Giriniz." />
+    <br />
+    <input type="text" asp-for="Link" class="form-control" placeholder="Sosyal Medya linki Giriniz." />
+    <br />
+    <input type="text" asp-for="Icon" class="form-control" placeholder="Sosyal Medya Icon Giriniz." />
+    <br />
+    <div class="card">
+        <div class="card-body">
+        <input type="radio" name="Status" value="True" checked> Aktif<br />
+
+        <input type="radio" name="Status" value="False">Pasif
+        </div>
+    </div>
+    
+   
+    <button class="btn btn-success">Ekle</button>
+</form>
+

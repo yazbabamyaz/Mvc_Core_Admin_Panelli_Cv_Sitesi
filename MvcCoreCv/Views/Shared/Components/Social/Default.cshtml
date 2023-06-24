@@ -1,0 +1,9 @@
+﻿@using MvcCoreCv.Entities
+@model IEnumerable<TblSocial>
+
+    <div class="social-icons">
+        @foreach (var item in Model)
+        {
+        <a class="social-icon" href="@item.Link"><i class="@item.Icon"></i></a>
+        }
+                </div>

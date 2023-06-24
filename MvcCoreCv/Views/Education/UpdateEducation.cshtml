@@ -1,0 +1,22 @@
+﻿@using MvcCoreCv.DTOs
+@model EducationDto
+@{
+    ViewData["Title"] = "UpdateEducation";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>UpdateEducation</h1>
+
+<form class="form-group" method="post">
+    <input type="text" asp-for="Title" class="form-control" placeholder="Okul ismi Yazınız." />
+    <br />
+    <input type="text" asp-for="SubTitle1" class="form-control" placeholder="Bölüm ismi Yazınız..." />
+    <br />
+    <input type="text" asp-for="SubTitle2" class="form-control" placeholder="Bölüm2 ismi Yazınız..." />
+    <br />
+    <input type="text" asp-for="GPA" class="form-control" placeholder="Not Ortalaması yazınız..." />
+    <br />
+    <input type="text" asp-for="Date" class="form-control" placeholder="Tarih Yazınız..." />
+    <br />
+    <button class="btn btn-info">Güncelle</button>
+</form>

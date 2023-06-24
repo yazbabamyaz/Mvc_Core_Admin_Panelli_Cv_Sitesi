@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewData["Title"] = "AddExperience";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Yeni Deneyim Ekle</h1>
+<form class="form-group" method="post">    
+    <input type="text" name="Title" class="form-control" placeholder="Başlık yazınız..." />
+    <br />
+    <input type="text" name="SubTitle" class="form-control" placeholder="Alt Başlık..." />
+    <br />    
+    <input type="text" name="Date" class="form-control" placeholder="Tarih..." />
+    <br />
+    <textarea name="Description" class="form-control" placeholder="Açıklama Giriniz..." rows="5"></textarea>
+    <br />
+    <button class="btn btn-info">Kaydet</button>
+</form>
