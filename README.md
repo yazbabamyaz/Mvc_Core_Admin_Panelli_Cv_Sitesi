@@ -5,5 +5,5 @@
 4- FluentValidation
 5- Repository Design Pattern kullanılmıştır.
 6- Frontend kısmında free template kullanılmıştır.
----
+
 
