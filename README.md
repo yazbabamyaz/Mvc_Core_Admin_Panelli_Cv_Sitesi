@@ -1,4 +1,5 @@
-# Mvc_Core_Admin_Panelli_Cv_Sitesi
+# Admin Panelli Cv Projesi
+Proje www.yazbabamyaz.com adresinde canlıya alınmıştır.
 1- Proje Asp.Net Core ile yapılmıştır.
 
 2- Dil olarak c# kullanılmıştır.
